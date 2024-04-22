@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>My First Project</title>
+		<title>Coffee House</title>
 		<link rel="stylesheet" href="style.css" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -40,7 +40,7 @@
 				</div>
 				<div class="left-item-wrap">
 					<div class="nav-item">
-						<h3 class="nav-item cup-wrap menuBtn">
+						<h3 class="nav-item cup-wrap menuBtn getNone">
 							<span>Menu</span>
 							<img
 								class="coffee-cup"
@@ -48,10 +48,27 @@
 								alt=""
 							/>
 						</h3>
+						<img class="getBlock toggleBurger" src="Assets/MenuPage/button-icon-burger.svg" alt="">
+						<img class=" getBlock toggleBurger" src="Assets/MenuPage/button-icon-burger (1).svg" alt="">
 						
 					</div>
 				</div>
 			</header>
+
+			<div class="burgerWrapper getBlock">
+				<h3 class="burger-item nav-item">Favorite coffee<div class="a-border"></div></h3>
+				<h3 class="burger-item nav-item">About<div class="a-border"></div></h3>
+				<h3 class="burger-item nav-item">Mobile app<div class="a-border"></div></h3>
+				<h3 class="burger-item nav-item">Contact us<div class="a-border"></div></h3>
+				<h3 class="burger-item nav-item cup-wrap menuBtn getBlock">			
+					<span>Menu</span>
+					<img
+						class="coffee-cup"
+						src="Assets/HomePage/coffee-cup.svg"
+						alt=""
+					/>
+				</h3>
+			</div>
 
 			<div class="homePageWrapper">
 				<div class="imgWrapper">
@@ -157,7 +174,7 @@
 					get some work done.
 				</h1>
 				<div class="images-wrapper">
-					<div class="image-item">
+					<div class="image-item getNone">
 						<div class="about first-about">
 							<img class="about-item" src="Assets/HomePage/about-1.png" alt="" />
 						</div>
@@ -167,7 +184,8 @@
 					</div>
 					<div class="image-item">
 						<div class="about third-about">
-							<img class="about-item" src="Assets/HomePage/about-3.png" alt="" />
+							<img class="about-item getBlock" src="Assets/HomePage/about-1.png" alt="" />
+							<img class="about-item getNone" src="Assets/HomePage/about-3.png" alt="" />
 						</div>
 						<div class="about fourth-about">
 							<img class="about-item" src="Assets/HomePage/about-4.jpg" alt="" />
@@ -240,9 +258,12 @@
 							</button>
 						</div>
 					</div>
-					<div class="phone-image">
+					<div class="phone-image getNone">
 						<img class="mobile-screen" src="Assets/HomePage/mobile-screens.png" alt="" />
 					</div>
+				</div>
+				<div class="phone-image getBlock">
+					<img class="mobile-screen" src="Assets/HomePage/mobile-screens.png" alt="" />
 				</div>
 			</div>
 
@@ -297,7 +318,7 @@
 							<h2 class="coffee-price">$5.00</h2>
 						</div>
 					</div>
-					<div class="coffee-item">
+					<div class="coffee-item getNone">
 						<div class="cof-img-wrap"><img class="coffee-img" src="Assets/MenuPage/coffee-5.jpg" alt=""></div>
 						<div class="coffee-desc-wrap">
 							<h2 class="coffee-name">Espresso</h2>
@@ -305,7 +326,7 @@
 							<h2 class="coffee-price">$4.50</h2>
 						</div>
 					</div>
-					<div class="coffee-item">
+					<div class="coffee-item getNone">
 						<div class="cof-img-wrap"><img class="coffee-img" src="Assets/MenuPage/coffee-6.jpg" alt=""></div>
 						<div class="coffee-desc-wrap">
 							<h2 class="coffee-name">Latte</h2>
@@ -313,7 +334,7 @@
 							<h2 class="coffee-price">$5.50</h2>
 						</div>
 					</div>
-					<div class="coffee-item">
+					<div class="coffee-item getNone">
 						<div class="cof-img-wrap"><img class="coffee-img" src="Assets/MenuPage/coffee-7.jpg" alt=""></div>
 						<div class="coffee-desc-wrap">
 							<h2 class="coffee-name">Latte macchiato</h2>
@@ -321,7 +342,7 @@
 							<h2 class="coffee-price">$5.50</h2>
 						</div>
 					</div>
-					<div class="coffee-item">
+					<div class="coffee-item getNone">
 						<div class="cof-img-wrap"><img class="coffee-img" src="Assets/MenuPage/coffee-8.jpg" alt=""></div>
 						<div class="coffee-desc-wrap">
 							<h2 class="coffee-name">Coffee with cognac</h2>
@@ -329,6 +350,7 @@
 							<h2 class="coffee-price">$6.50</h2>
 						</div>
 					</div>
+					
 				</div>
 
 				<div class="coffee-items-wrap real-tea">
@@ -400,7 +422,7 @@
 							<h2 class="coffee-price">$4.00</h2>
 						</div>
 					</div>
-					<div class="coffee-item">
+					<div class="coffee-item getNone">
 						<div class="cof-img-wrap"><img class="coffee-img" src="Assets/MenuPage/dessert-5.png" alt=""></div>
 						<div class="coffee-desc-wrap">
 							<h2 class="coffee-name">Pancakes</h2>
@@ -408,7 +430,7 @@
 							<h2 class="coffee-price">$4.50</h2>
 						</div>
 					</div>
-					<div class="coffee-item">
+					<div class="coffee-item getNone">
 						<div class="cof-img-wrap"><img class="coffee-img" src="Assets/MenuPage/dessert-6.png" alt=""></div>
 						<div class="coffee-desc-wrap">
 							<h2 class="coffee-name">Honey cake</h2>
@@ -416,7 +438,7 @@
 							<h2 class="coffee-price">$4.50</h2>
 						</div>
 					</div>
-					<div class="coffee-item">
+					<div class="coffee-item getNone">
 						<div class="cof-img-wrap"><img class="coffee-img" src="Assets/MenuPage/dessert-7.jpg" alt=""></div>
 						<div class="coffee-desc-wrap">
 							<h2 class="coffee-name">Chocolate cake</h2>
@@ -424,7 +446,7 @@
 							<h2 class="coffee-price">$5.50</h2>
 						</div>
 					</div>
-					<div class="coffee-item">
+					<div class="coffee-item getNone">
 						<div class="cof-img-wrap"><img class="coffee-img" src="Assets/MenuPage/dessert-8.png" alt=""></div>
 						<div class="coffee-desc-wrap">
 							<h2 class="coffee-name">Black forest</h2>
@@ -433,6 +455,7 @@
 						</div>
 					</div>
 				</div>
+				<div class="updateDiv getBlock"><img src="Assets/MenuPage/button-icon-dark.png" alt=""></div>
 
 				<div class="forAbsolute">
 					<div class="cardCoffeeWrap forFirstCoffee">
@@ -678,7 +701,7 @@
 						</svg>
 					</div>
 				</div>
-				<div class="right">
+				<div class="right ">
 					<h2 class="contact">Contact us</h2>
 					<div class="info-wrapper">
 						<p class="info">

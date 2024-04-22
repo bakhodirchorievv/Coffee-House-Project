@@ -98,6 +98,12 @@ const clickEvents = document.querySelectorAll(".clickEvent");
 const forAbsolutes = document.querySelectorAll(".forAbsolute");
 const closeBtns = document.querySelectorAll(".closeBtn");
 const overlay = document.querySelector(".overlay");
+const coffeeItems = document.querySelectorAll(".coffee-item");
+const updateDiv = document.querySelector(".updateDiv");
+const toggleBurgers = document.querySelectorAll(".toggleBurger");
+const burgerWrapper = document.querySelector(".burgerWrapper");
+
+coffeeWraps[0].style.display = "flex";
 
 btn.addEventListener("mouseover", () => {
 	menuCup.style.transform = "scale(1)";
@@ -156,6 +162,18 @@ typeIcons.forEach((icon, index) => {
 		typeIcons[index].style.backgroundColor = "rgba(102, 95, 85, 1)";
 		typeIcons[index].style.color = "rgba(225, 212, 201, 1)";
 		coffeeWraps[index].style.display = "flex";
+
+		if (window.innerWidth > 850) {
+			updateDiv.style.display = "none";
+		} else {
+			Array.from(coffeeWraps[index].children).forEach((child) => {
+				if (child.classList.contains("getNone")) {
+					updateDiv.style.display = "block";
+				} else {
+					updateDiv.style.display = "none";
+				}
+			});
+		}
 	});
 });
 
@@ -169,6 +187,13 @@ menuBtns.forEach((menuBtn) => {
 			homePage.style.display = "block";
 			menuPage.style.display = "none";
 			menuBtns.forEach((menu) => (menu.children[0].textContent = "Menu"));
+		}
+
+		if (window.innerWidth < 850) {
+			burgerWrapper.style.right = "-100%";
+			toggleBurgers[0].style.transform = "scale(1)";
+			toggleBurgers[1].style.transform = "scale(0)";
+			document.body.style.overflowY = "visible";
 		}
 	});
 });
@@ -190,4 +215,33 @@ closeBtns.forEach((closeBtn) => {
 overlay.addEventListener("click", () => {
 	forAbsolutes.forEach((coffeeWrap) => (coffeeWrap.style.display = "none"));
 	overlay.style.display = "none";
+});
+
+updateDiv.addEventListener("click", () => {
+	coffeeWraps.forEach((coffeItem) => {
+		if (coffeItem.style.display == "flex") {
+			Array.from(coffeItem.children).forEach((child) => {
+				if (child.classList.contains("getNone")) {
+					child.classList.remove("getNone");
+				}
+			});
+		}
+	});
+	updateDiv.style.display = "none";
+});
+
+toggleBurgers.forEach((burger, index) => {
+	burger.addEventListener("click", () => {
+		if (index == 0) {
+			burgerWrapper.style.right = "5px";
+			toggleBurgers[0].style.transform = "scale(0)";
+			toggleBurgers[1].style.transform = "scale(1)";
+			document.body.style.overflowY = "hidden";
+		} else {
+			burgerWrapper.style.right = "-100%";
+			toggleBurgers[0].style.transform = "scale(1)";
+			toggleBurgers[1].style.transform = "scale(0)";
+			document.body.style.overflowY = "visible";
+		}
+	});
 });
