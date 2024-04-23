@@ -407,7 +407,7 @@ body {
 .icons-wrapper {
 	display: flex;
 	justify-content: space-between;
-	width: 300px;
+	max-width: 300px;
 	gap: 10px;
 	margin: 10px auto;
 }
@@ -838,6 +838,15 @@ body {
 	.fst {
 		transition: 0.6s;
 	}
+
+	.icons-wrapper {
+		gap: 5px;
+	}
+	.type-icon {
+		font-size: x-small;
+		letter-spacing: 0.2px;
+		gap: 2px;
+	}
 }
 
 @media only screen and (max-width: 373px) {
@@ -852,6 +861,10 @@ body {
 		top: 40px;
 		left: 20px;
 		right: 10px;
+	}
+
+	.type-icon {
+		padding: 5px 10px 5px 5px;
 	}
 }
 @media only screen and (max-width: 400px) {
