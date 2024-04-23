@@ -8,12 +8,25 @@ let thePxOfLeft = 0;
 let number = 0;
 let index = 0;
 
+function resetAllf() {
+	thePxOfLeft = 0;
+	number = 0;
+	index = 0;
+}
+function resetAlls() {
+	thePxOfLeft = 200;
+	number = 2;
+	index = 2;
+}
+
 fsts.forEach((fst) => {
 	fst.style.left = "0";
 });
 
 nextBtn.addEventListener("click", nextFunction);
 function nextFunction() {
+	backToFirst();
+
 	if (number >= 2) return;
 	thePxOfLeft = thePxOfLeft + 100;
 	fsts.forEach((fst) => {
@@ -30,6 +43,8 @@ function nextFunction() {
 
 backBtn.addEventListener("click", backFunction);
 function backFunction() {
+	backToLast();
+
 	if (number <= 0) return;
 	thePxOfLeft = thePxOfLeft - 100;
 	fsts.forEach((fst) => {
@@ -42,6 +57,37 @@ function backFunction() {
 		(border) => (border.style.backgroundColor = "rgba(193, 182, 173, 1)")
 	);
 	borders[index].style.backgroundColor = "rgba(102, 95, 85, 1)";
+}
+
+function backToFirst() {
+	if (number === 2) {
+		fsts.forEach((fst) => {
+			fst.style.left = `0`;
+		});
+		borders.forEach(
+			(border) => (border.style.backgroundColor = "rgba(193, 182, 173, 1)")
+		);
+		borders[0].style.backgroundColor = "rgba(102, 95, 85, 1)";
+		setTimeout(() => {
+			resetAllf();
+		}, 500);
+	}
+}
+
+function backToLast() {
+	if (number === 0) {
+		thePxOfLeft = 200;
+		fsts.forEach((fst) => {
+			fst.style.left = `-${thePxOfLeft}%`;
+		});
+		borders.forEach(
+			(border) => (border.style.backgroundColor = "rgba(193, 182, 173, 1)")
+		);
+		borders[fsts.length - 1].style.backgroundColor = "rgba(102, 95, 85, 1)";
+		setTimeout(() => {
+			resetAlls();
+		}, 500);
+	}
 }
 
 // for swipe
