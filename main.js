@@ -1,87 +1,71 @@
 const nextBtn = document.querySelector(".arrow-right");
 const backBtn = document.querySelector(".arrow-left");
-const coffeCards = document.querySelectorAll(".fst");
+const fsts = document.querySelectorAll(".fst");
 const wrapper = document.querySelector(".choose-wrapper");
+const borders = document.querySelectorAll(".borderr");
 
-const content = [
-	`<div class="first fst">
-	<img
-		class="choice"
-		src="Assets/HomePage/coffee-slider-1.png"
-		alt=""
-	/>
-	<div class="desc-wrap">
-		<h2 class="price-name">S’mores Frappuccino</h2>
-		<p class="description">
-			This new drink takes an espresso and mixes it with brown sugar and
-			cinnamon before being topped with oat milk.
-		</p>
-		<h2 class="price-name">$5.50</h2>
-		<div class="borders">
-			<div class="borderr darkened"></div>
-			<div class="borderr"></div>
-			<div class="borderr"></div>
-		</div>
-	</div>
-</div>`,
-
-	`	<div class="second fst">
-	<img
-		class="choice"
-		src="Assets/HomePage/coffee-slider-2.png"
-		alt=""
-	/>
-	<div class="desc-wrap">
-		<h2 class="price-name">Caramel Macchiato</h2>
-		<p class="description">
-			Fragrant and unique classic, espresso with rich caramel-peanut
-			syrup, with cream under whipped thick foam.
-		</p>
-		<h2 class="price-name">$5.00</h2>
-		<div class="borders">
-			<div class="borderr"></div>
-			<div class="borderr darkened"></div>
-			<div class="borderr"></div>
-		</div>
-	</div>
-</div>`,
-
-	`	<div class="third fst">
-	<img
-		class="choice"
-		src="Assets/HomePage/coffee-slider-3.png"
-		alt=""
-	/>
-	<div class="desc-wrap">
-		<h2 class="price-name">Ice coffe</h2>
-		<p class="description">
-			A popular summer drink that tones and invigorates. Prepared from
-			coffee, milk and ice.
-		</p>
-		<h2 class="price-name">$4.50</h2>
-		<div class="borders">
-			<div class="borderr"></div>
-			<div class="borderr"></div>
-			<div class="borderr darkened"></div>
-		</div>
-	</div>
-</div>`,
-];
-
+let thePxOfLeft = 0;
+let number = 0;
 let index = 0;
 
-nextBtn.addEventListener("click", () => {
-	if (index == 2) return;
-	index++;
-	if (index > 2) return;
-	wrapper.innerHTML = content[index];
+fsts.forEach((fst) => {
+	fst.style.left = "0";
 });
 
-backBtn.addEventListener("click", () => {
-	if (index == 0) return;
+nextBtn.addEventListener("click", nextFunction);
+function nextFunction() {
+	if (number >= 2) return;
+	thePxOfLeft = thePxOfLeft + 100;
+	fsts.forEach((fst) => {
+		fst.style.left = `-${thePxOfLeft}%`;
+	});
+
+	number++;
+	index++;
+	borders.forEach(
+		(border) => (border.style.backgroundColor = "rgba(193, 182, 173, 1)")
+	);
+	borders[index].style.backgroundColor = "rgba(102, 95, 85, 1)";
+}
+
+backBtn.addEventListener("click", backFunction);
+function backFunction() {
+	if (number <= 0) return;
+	thePxOfLeft = thePxOfLeft - 100;
+	fsts.forEach((fst) => {
+		fst.style.left = `-${thePxOfLeft}%`;
+	});
+
+	number--;
 	index--;
-	if (index < 0) return;
-	wrapper.innerHTML = content[index];
+	borders.forEach(
+		(border) => (border.style.backgroundColor = "rgba(193, 182, 173, 1)")
+	);
+	borders[index].style.backgroundColor = "rgba(102, 95, 85, 1)";
+}
+
+// for swipe
+let startX = 0;
+let startY = 0;
+
+document.addEventListener("touchstart", (event) => {
+	startX = event.touches[0].clientX;
+	startY = event.touches[0].clientY;
+});
+
+document.addEventListener("touchend", (event) => {
+	let endX = event.changedTouches[0].clientX;
+	let endY = event.changedTouches[0].clientY;
+	let deltaX = endX - startX;
+	let deltaY = endY - startY;
+
+	if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 10) {
+		if (deltaX > 0) {
+			backFunction();
+		} else {
+			nextFunction();
+		}
+	}
 });
 
 const btn = document.querySelector(".btn");
@@ -194,6 +178,7 @@ menuBtns.forEach((menuBtn) => {
 			toggleBurgers[0].style.transform = "scale(1)";
 			toggleBurgers[1].style.transform = "scale(0)";
 			document.body.style.overflowY = "visible";
+			toggleBurgers[index].parentElement.style.paddingBottom = "0px";
 		}
 	});
 });
@@ -237,11 +222,13 @@ toggleBurgers.forEach((burger, index) => {
 			toggleBurgers[0].style.transform = "scale(0)";
 			toggleBurgers[1].style.transform = "scale(1)";
 			document.body.style.overflowY = "hidden";
+			toggleBurgers[index].parentElement.style.paddingBottom = "3px";
 		} else {
 			burgerWrapper.style.right = "-100%";
 			toggleBurgers[0].style.transform = "scale(1)";
 			toggleBurgers[1].style.transform = "scale(0)";
 			document.body.style.overflowY = "visible";
+			toggleBurgers[index].parentElement.style.paddingBottom = "0px";
 		}
 	});
 });
