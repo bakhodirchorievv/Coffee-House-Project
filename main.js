@@ -114,6 +114,7 @@ document.addEventListener("touchend", (event) => {
 	}
 });
 
+const logo = document.querySelector(".logo");
 const btn = document.querySelector(".btn");
 const menuT = document.querySelector(".menu-t");
 const menuCup = document.querySelector(".menu-cup");
@@ -132,6 +133,12 @@ const coffeeItems = document.querySelectorAll(".coffee-item");
 const updateDiv = document.querySelector(".updateDiv");
 const toggleBurgers = document.querySelectorAll(".toggleBurger");
 const burgerWrapper = document.querySelector(".burgerWrapper");
+
+logo.addEventListener("click", () => {
+	homePage.style.display = "block";
+	menuPage.style.display = "none";
+	menuBtns.forEach((menu) => (menu.children[0].textContent = "Menu"));
+});
 
 coffeeWraps[0].style.display = "flex";
 
@@ -278,3 +285,36 @@ toggleBurgers.forEach((burger, index) => {
 		}
 	});
 });
+
+const navItems = burgerWrapper.querySelectorAll(".nav-item");
+
+navItems.forEach((navItem, index) => {
+	navItem.addEventListener("click", () => {
+		if (homePage.style.display == "block" || index == 3) {
+			burgerWrapper.style.right = "-100%";
+			toggleBurgers[0].style.transform = "scale(1)";
+			toggleBurgers[1].style.transform = "scale(0)";
+			document.body.style.overflowY = "visible";
+			toggleBurgers[index].parentElement.style.paddingBottom = "0px";
+		}
+	});
+});
+
+// modal functions
+
+// const realQuantity = document.querySelectorAll(".realQuantity");
+// const realAdditives = document.querySelectorAll(".realAdditives");
+
+// realQuantity.forEach((realQ, index) => {
+// 	realQ.addEventListener("click", () => {
+// 		console.log(realQ);
+// 		console.log(index);
+// 	});
+// });
+
+// realAdditives.forEach((realA, index) => {
+// 	realA.addEventListener("click", () => {
+// 		console.log(realA);
+// 		console.log(index);
+// 	});
+// });

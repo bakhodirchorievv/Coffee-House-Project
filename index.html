@@ -3,7 +3,8 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Coffee House</title>
+		<title>  Coffee House</title>
+		<link rel="icon" type="image/svg+xml" href="Assets/MenuPage/icon.png">
 		<link rel="stylesheet" href="style.css" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -58,10 +59,10 @@
 			</header>
 
 			<div class="burgerWrapper getBlock">
-				<h3 class="burger-item nav-item">Favorite coffee<div class="a-border"></div></h3>
-				<h3 class="burger-item nav-item">About<div class="a-border"></div></h3>
-				<h3 class="burger-item nav-item">Mobile app<div class="a-border"></div></h3>
-				<h3 class="burger-item nav-item">Contact us<div class="a-border"></div></h3>
+				<h3 class="burger-item nav-item"><a href="#favoriteCoffee">Favorite coffee</a><div class="a-border"></div></h3>
+				<h3 class="burger-item nav-item"><a href="#about">About</a><div class="a-border"></div></h3>
+				<h3 class="burger-item nav-item"><a href="#mobileApp">Mobile app</a><div class="a-border"></div></h3>
+				<h3 class="burger-item nav-item"><a href="#contactUs">Contact us</a><div class="a-border"></div></h3>
 				<h3 class="burger-item nav-item cup-wrap menuBtn getBlock">			
 					<span>Menu</span>
 					<img
@@ -74,7 +75,7 @@
 
 			<div class="homePageWrapper">
 				<div class="imgWrapper">
-					<!-- <img class="img-hero" src="Assets/HomePage/hero-image.jpg" alt="" /> -->
+					
 					<video class="img-hero" src="Assets/HomePage/coffee-video.mp4" autoplay loop muted></video>
 					<div class="in-img-wrapper">
 						<h1 class="title">
@@ -93,9 +94,9 @@
 					</div>
 				</div>
 				<div>
-					<h1 class="choose-title">
+					<h2 class="choose-title">
 						Choose your <span class="favorite">favorite</span> coffee
-					</h1>
+					</h2>
 				</div>
 				<div class="father-choose-wrap" id="favoriteCoffee">
 					<div class="choose-wrapper">
@@ -160,12 +161,12 @@
 						<div class="borderr"></div>
 					</div>
 				</div>
-				<h1 class="title-def">
+				<h2 class="title-def">
 					Resource is
 					<span class="title-def-span">the perfect and cozy place</span> where you
 					can enjoy a variety of hot beverages, relax, catch up with friends, or
 					get some work done.
-				</h1>
+				</h2>
 				<div class="images-wrapper" id="about">
 					<div class="image-item getNone">
 						<div class="about first-about">
@@ -187,9 +188,9 @@
 				</div>
 				<div class="download-wrapper" id="mobileApp">
 					<div class="apps">
-						<h1 class="down-title">
+						<h2 class="down-title">
 							<span class="down-span">Download</span> our apps to start ordering
-						</h1>
+						</h2>
 						<p class="down-desc">
 							Download the Resource app today and experience the comfort of
 							ordering your favorite coffee from wherever you are
@@ -458,9 +459,9 @@
 						<div class="cardCoffeeDesc">
 							<h2 class="cardCoffeeName">Irish Coffee</h2>
 							<p class="cardCoffeeText">Fragrant black coffee with Jameson Irish whiskey and whipped milk</p>
-							<div class="quantityWrap">
+							<div class="quantityWrap ">
 								<p class="size">Size</p>
-								<div class="quantityBtnWrap">
+								<div class="quantityBtnWrap realQuantity">
 									<button class="quantityBtn autoHover">
 										<h2 class="justSign">S</h2>
 										<h3>200 ml</h3></button>
@@ -474,21 +475,21 @@
 							</div>
 							<div class="quantityWrap">
 								<p class="size">Additives</p>
-								<div class="quantityBtnWrap">
-									<button class="quantityBtn">
+								<div class="quantityBtnWrap realAdditives">
+									<button class="additiveBtn">
 										<h2 class="justSign inval2">1</h2>
 										<h3>Sugar</h3></button>
-									<button class="quantityBtn">
+									<button class="additiveBtn">
 										<h2 class="justSign">2</h2>
 										<h3>Cinnamon</h3></button>
-									<button class="quantityBtn">
+									<button class="additiveBtn">
 										<h2 class="justSign">3</h2>
 										<h3>Syrup</h3></button>
 								</div>
 							</div>
 							<div class="totalWrap">
 								<h2>Total:</h2>
-								<h2>$7.00</h2>
+								<h2 class="firstPrice">$7.00</h2>
 							</div>
 							<div class="alert-wrap">
 								<i id="alert-icon" class="fa-solid fa-circle-exclamation"></i>
@@ -510,7 +511,7 @@
 	
 							<div class="quantityWrap">
 								<p class="size">Size</p>
-								<div class="quantityBtnWrap">
+								<div class="quantityBtnWrap realQuantity">
 									<button class="quantityBtn autoHover">
 										<h2 class="justSign">S</h2>
 										<h3>200 ml</h3></button>
@@ -525,14 +526,14 @@
 	
 							<div class="quantityWrap">
 								<p class="size">Additives</p>
-								<div class="quantityBtnWrap">
-									<button class="quantityBtn">
+								<div class="quantityBtnWrap realAdditives">
+									<button class="additiveBtn">
 										<h2 class="justSign inval2">1</h2>
 										<h3>Sugar</h3></button>
-									<button class="quantityBtn">
+									<button class="additiveBtn">
 										<h2 class="justSign">2</h2>
 										<h3>Lemon</h3></button>
-									<button class="quantityBtn">
+									<button class="additiveBtn">
 										<h2 class="justSign">3</h2>
 										<h3>Syrup</h3></button>
 								</div>
@@ -540,7 +541,7 @@
 	
 							<div class="totalWrap">
 								<h2>Total:</h2>
-								<h2>$4.50</h2>
+								<h2 class="secondPrice">$4.50</h2>
 							</div>
 	
 							<div class="alert-wrap">
@@ -564,7 +565,7 @@
 							<p class="cardCoffeeText">Philadelphia cheese with lemon zest on a light sponge cake and red currant jam</p>
 							<div class="quantityWrap">
 								<p class="size">Size</p>
-								<div class="quantityBtnWrap">
+								<div class="quantityBtnWrap realQuantity">
 									<button class="quantityBtn autoHover">
 										<h2 class="justSign">S</h2>
 										<h3>50 g</h3></button>
@@ -578,21 +579,21 @@
 							</div>
 							<div class="quantityWrap">
 								<p class="size">Additives</p>
-								<div class="quantityBtnWrap">
-									<button class="quantityBtn">
+								<div class="quantityBtnWrap realAdditives">
+									<button class="additiveBtn">
 										<h2 class="justSign inval2">1</h2>
 										<h3>Berries</h3></button>
-									<button class="quantityBtn">
+									<button class="additiveBtn">
 										<h2 class="justSign">2</h2>
 										<h3>Nuts</h3></button>
-									<button class="quantityBtn">
+									<button class="additiveBtn">
 										<h2 class="justSign">3</h2>
 										<h3>Jam</h3></button>
 								</div>
 							</div>
 							<div class="totalWrap">
 								<h2>Total:</h2>
-								<h2>$3.50</h2>
+								<h2 class="thirdPrice">$3.50</h2>
 							</div>
 							<div class="alert-wrap">
 								<i id="alert-icon" class="fa-solid fa-circle-exclamation"></i>
@@ -609,8 +610,8 @@
 
 			<footer class="footer" id="contactUs">
 				<div class="left">
-					<h1 class="foot-title1">Sip, Savor, Smile.</h1>
-					<h1 class="foot-title2">It’s coffee time!</h1>
+					<h2 class="foot-title1">Sip, Savor, Smile.</h2>
+					<h2 class="foot-title2">It’s coffee time!</h2>
 
 					<div class="logos-wrapper">
 						<svg
