@@ -3,10 +3,42 @@ const backBtn = document.querySelector(".arrow-left");
 const fsts = document.querySelectorAll(".fst");
 const wrapper = document.querySelector(".choose-wrapper");
 const borders = document.querySelectorAll(".borderr");
+const mainBorders = document.querySelectorAll(".main-border");
 
 let thePxOfLeft = 0;
 let number = 0;
 let index = 0;
+
+let touchFind = false;
+document.addEventListener("touchstart", () => {
+	touchFind = true;
+});
+document.addEventListener("touchend", () => {
+	touchFind = false;
+});
+
+function contBorder() {
+	mainBorders.forEach((mainBorder, idx) => {
+		mainBorder.style.transform = "scaleX(0)";
+		mainBorder.style.transition = "0.8s";
+		if (idx === index) {
+			mainBorder.style.transition = "8s";
+			mainBorder.style.transform = "scaleX(1)";
+		}
+	});
+}
+setTimeout(() => {
+	contBorder();
+}, 500);
+
+let callTheFunctions;
+function setTheInterval() {
+	callTheFunctions = setInterval(() => {
+		nextFunction();
+		contBorder();
+	}, 7000);
+}
+setTheInterval();
 
 function resetAllf() {
 	thePxOfLeft = 0;
@@ -23,7 +55,12 @@ fsts.forEach((fst) => {
 	fst.style.left = "0";
 });
 
-nextBtn.addEventListener("click", nextFunction);
+nextBtn.addEventListener("click", () => {
+	clearInterval(callTheFunctions);
+	nextFunction();
+	contBorder();
+	setTheInterval();
+});
 function nextFunction() {
 	backToFirst();
 
@@ -35,13 +72,14 @@ function nextFunction() {
 
 	number++;
 	index++;
-	borders.forEach(
-		(border) => (border.style.backgroundColor = "rgba(193, 182, 173, 1)")
-	);
-	borders[index].style.backgroundColor = "rgba(102, 95, 85, 1)";
 }
 
-backBtn.addEventListener("click", backFunction);
+backBtn.addEventListener("click", () => {
+	clearInterval(callTheFunctions);
+	backFunction();
+	contBorder();
+	setTheInterval();
+});
 function backFunction() {
 	backToLast();
 
@@ -53,10 +91,6 @@ function backFunction() {
 
 	number--;
 	index--;
-	borders.forEach(
-		(border) => (border.style.backgroundColor = "rgba(193, 182, 173, 1)")
-	);
-	borders[index].style.backgroundColor = "rgba(102, 95, 85, 1)";
 }
 
 function backToFirst() {
@@ -64,12 +98,9 @@ function backToFirst() {
 		fsts.forEach((fst) => {
 			fst.style.left = `0`;
 		});
-		borders.forEach(
-			(border) => (border.style.backgroundColor = "rgba(193, 182, 173, 1)")
-		);
-		borders[0].style.backgroundColor = "rgba(102, 95, 85, 1)";
 		setTimeout(() => {
 			resetAllf();
+			contBorder();
 		}, 500);
 	}
 }
@@ -80,12 +111,9 @@ function backToLast() {
 		fsts.forEach((fst) => {
 			fst.style.left = `-${thePxOfLeft}%`;
 		});
-		borders.forEach(
-			(border) => (border.style.backgroundColor = "rgba(193, 182, 173, 1)")
-		);
-		borders[fsts.length - 1].style.backgroundColor = "rgba(102, 95, 85, 1)";
 		setTimeout(() => {
 			resetAlls();
+			contBorder();
 		}, 500);
 	}
 }
@@ -107,9 +135,15 @@ document.addEventListener("touchend", (event) => {
 
 	if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 10) {
 		if (deltaX > 0) {
+			clearInterval(callTheFunctions);
 			backFunction();
+			contBorder();
+			setTheInterval();
 		} else {
+			clearInterval(callTheFunctions);
 			nextFunction();
+			contBorder();
+			setTheInterval();
 		}
 	}
 });
@@ -133,6 +167,19 @@ const coffeeItems = document.querySelectorAll(".coffee-item");
 const updateDiv = document.querySelector(".updateDiv");
 const toggleBurgers = document.querySelectorAll(".toggleBurger");
 const burgerWrapper = document.querySelector(".burgerWrapper");
+const mainToggle = document.querySelector(".burger-icon-wrap");
+
+mainToggle.addEventListener("click", () => {
+	if (mainToggle.innerText == "=") {
+		burgerWrapper.style.right = "5px";
+		document.body.style.overflowY = "hidden";
+		mainToggle.textContent = "×";
+	} else {
+		burgerWrapper.style.right = "-100%";
+		document.body.style.overflowY = "visible";
+		mainToggle.textContent = "=";
+	}
+});
 
 logo.addEventListener("click", () => {
 	homePage.style.display = "block";
@@ -143,14 +190,18 @@ logo.addEventListener("click", () => {
 coffeeWraps[0].style.display = "flex";
 
 btn.addEventListener("mouseover", () => {
-	menuCup.style.transform = "scale(1)";
-	menuT.style.marginLeft = "-7px";
-	menuCup.classList.add("add-cup");
+	if (window.innerWidth > 850) {
+		menuCup.style.transform = "scale(1)";
+		menuT.style.marginLeft = "-7px";
+		menuCup.classList.add("add-cup");
+	}
 });
 btn.addEventListener("mouseleave", () => {
-	menuCup.style.transform = "scale(0)";
-	menuT.style.marginLeft = "7px";
-	menuCup.classList.remove("add-cup");
+	if (window.innerWidth > 850) {
+		menuCup.style.transform = "scale(0)";
+		menuT.style.marginLeft = "7px";
+		menuCup.classList.remove("add-cup");
+	}
 });
 
 btnIcons.forEach((btnIcon) => {
@@ -228,10 +279,8 @@ menuBtns.forEach((menuBtn) => {
 
 		if (window.innerWidth < 850) {
 			burgerWrapper.style.right = "-100%";
-			toggleBurgers[0].style.transform = "scale(1)";
-			toggleBurgers[1].style.transform = "scale(0)";
+			mainToggle.textContent = "=";
 			document.body.style.overflowY = "visible";
-			toggleBurgers[index].parentElement.style.paddingBottom = "0px";
 		}
 	});
 });
@@ -268,53 +317,73 @@ updateDiv.addEventListener("click", () => {
 	updateDiv.style.display = "none";
 });
 
-toggleBurgers.forEach((burger, index) => {
-	burger.addEventListener("click", () => {
-		if (index == 0) {
-			burgerWrapper.style.right = "5px";
-			toggleBurgers[0].style.transform = "scale(0)";
-			toggleBurgers[1].style.transform = "scale(1)";
-			document.body.style.overflowY = "hidden";
-			toggleBurgers[index].parentElement.style.paddingBottom = "3px";
-		} else {
-			burgerWrapper.style.right = "-100%";
-			toggleBurgers[0].style.transform = "scale(1)";
-			toggleBurgers[1].style.transform = "scale(0)";
-			document.body.style.overflowY = "visible";
-			toggleBurgers[index].parentElement.style.paddingBottom = "0px";
-		}
-	});
-});
-
 const navItems = burgerWrapper.querySelectorAll(".nav-item");
 
 navItems.forEach((navItem, index) => {
 	navItem.addEventListener("click", () => {
 		if (homePage.style.display == "block" || index == 3) {
 			burgerWrapper.style.right = "-100%";
-			toggleBurgers[0].style.transform = "scale(1)";
-			toggleBurgers[1].style.transform = "scale(0)";
+			mainToggle.textContent = "=";
 			document.body.style.overflowY = "visible";
-			toggleBurgers[index].parentElement.style.paddingBottom = "0px";
 		}
 	});
 });
 
 // modal functions
 
-// const realQuantity = document.querySelectorAll(".realQuantity");
-// const realAdditives = document.querySelectorAll(".realAdditives");
+const quantityBtns = document.querySelectorAll(".quantityBtn");
+const additiveBtns = document.querySelectorAll(".additiveBtn");
 
-// realQuantity.forEach((realQ, index) => {
-// 	realQ.addEventListener("click", () => {
-// 		console.log(realQ);
-// 		console.log(index);
-// 	});
-// });
+quantityBtns.forEach((quantityBtn) => {
+	quantityBtn.addEventListener("click", () => {
+		const fatherElement = quantityBtn.parentElement.parentElement.parentElement;
+		const thePrice = fatherElement.querySelector(".prices");
 
-// realAdditives.forEach((realA, index) => {
-// 	realA.addEventListener("click", () => {
-// 		console.log(realA);
-// 		console.log(index);
-// 	});
-// });
+		if (!quantityBtn.classList.contains("autoHover")) {
+			quantityBtn.classList.add("autoHover");
+
+			if (quantityBtn.children[0].textContent == "S") {
+				thePrice.textContent =
+					"$" + (Number(thePrice.textContent.slice(1)) + 0.0).toFixed(2);
+			} else if (quantityBtn.children[0].textContent == "M") {
+				thePrice.textContent =
+					"$" + (Number(thePrice.textContent.slice(1)) + 0.5).toFixed(2);
+			} else if (quantityBtn.children[0].textContent == "L") {
+				thePrice.textContent =
+					"$" + (Number(thePrice.textContent.slice(1)) + 1.0).toFixed(2);
+			}
+		} else {
+			quantityBtn.classList.remove("autoHover");
+
+			if (quantityBtn.children[0].textContent == "S") {
+				thePrice.textContent =
+					"$" + (Number(thePrice.textContent.slice(1)) - 0.0).toFixed(2);
+			} else if (quantityBtn.children[0].textContent == "M") {
+				thePrice.textContent =
+					"$" + (Number(thePrice.textContent.slice(1)) - 0.5).toFixed(2);
+			} else if (quantityBtn.children[0].textContent == "L") {
+				thePrice.textContent =
+					"$" + (Number(thePrice.textContent.slice(1)) - 1.0).toFixed(2);
+			}
+		}
+	});
+});
+
+additiveBtns.forEach((additive) => {
+	const fatherElement = additive.parentElement.parentElement.parentElement;
+	const thePrice = fatherElement.querySelector(".prices");
+
+	additive.addEventListener("click", () => {
+		if (!additive.classList.contains("autoHover")) {
+			additive.classList.add("autoHover");
+
+			thePrice.textContent =
+				"$" + (Number(thePrice.textContent.slice(1)) + 0.5).toFixed(2);
+		} else {
+			additive.classList.remove("autoHover");
+
+			thePrice.textContent =
+				"$" + (Number(thePrice.textContent.slice(1)) - 0.5).toFixed(2);
+		}
+	});
+});
