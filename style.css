@@ -820,7 +820,10 @@ a {
 	.title-def,
 	.menu-main-title {
 		font-size: 38px;
-		line-height: 40px;
+		line-height: 42px;
+	}
+	.title {
+		font-size: 40px;
 	}
 
 	.in-img-wrapper {
@@ -851,6 +854,9 @@ a {
 	}
 
 	/* menu start */
+	.menu-main-title {
+		width: 92%;
+	}
 	.cardCoffeeWrap {
 		width: 100%;
 	}
@@ -909,11 +915,27 @@ a {
 	}
 }
 @media only screen and (max-width: 400px) {
+	.title,
+	.down-title,
+	.foot-title1,
+	.foot-title2,
+	.choose-title,
+	.title-def,
+	.menu-main-title {
+		font-size: 30px;
+		line-height: 35px;
+	}
+	.title {
+		font-size: 35px;
+	}
 	.arrow-none {
 		display: none;
 	}
 	.choice {
 		width: 90%;
+	}
+	.menu-main-title {
+		font-size: 30px;
 	}
 }
 
