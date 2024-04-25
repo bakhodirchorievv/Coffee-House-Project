@@ -874,10 +874,10 @@ a {
 		width: 50%;
 	}
 	.quantityBtn {
-		font-size: x-small;
+		font-size: small;
 	}
 	.additiveBtn {
-		font-size: x-small;
+		font-size: small;
 	}
 
 	.coffee-item {
@@ -940,9 +940,7 @@ a {
 	.menu-main-title {
 		font-size: 30px;
 	}
-}
 
-@media only screen and (max-width: 400px) {
 	/* menu start*/
 	.cardImgWrap {
 		display: none;
@@ -954,6 +952,9 @@ a {
 	.cardCoffeeDesc {
 		width: 100%;
 	}
+}
+
+@media only screen and (max-width: 480px) and (min-width: 420px) {
 	.quantityBtn {
 		font-size: x-small;
 	}

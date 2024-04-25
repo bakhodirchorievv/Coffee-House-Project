@@ -287,6 +287,7 @@ clickEvents.forEach((clickEvent, index) => {
 	clickEvent.addEventListener("click", () => {
 		forAbsolutes[index].style.display = "block";
 		overlay.style.display = "block";
+		document.body.style.overflowY = "hidden";
 	});
 });
 
@@ -294,12 +295,14 @@ closeBtns.forEach((closeBtn) => {
 	closeBtn.addEventListener("click", () => {
 		forAbsolutes.forEach((coffeeWrap) => (coffeeWrap.style.display = "none"));
 		overlay.style.display = "none";
+		document.body.style.overflowY = "visible";
 	});
 });
 
 overlay.addEventListener("click", () => {
 	forAbsolutes.forEach((coffeeWrap) => (coffeeWrap.style.display = "none"));
 	overlay.style.display = "none";
+	document.body.style.overflowY = "visible";
 });
 
 updateDiv.addEventListener("click", () => {
