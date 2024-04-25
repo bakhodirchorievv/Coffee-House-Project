@@ -867,9 +867,6 @@ a {
 		width: 98%;
 		font-size: smaller;
 	}
-	.quantityBtn {
-		font-size: small;
-	}
 	.cardCoffeeDesc {
 		width: 100%;
 	}
@@ -877,6 +874,9 @@ a {
 		width: 50%;
 	}
 	.quantityBtn {
+		font-size: x-small;
+	}
+	.additiveBtn {
 		font-size: x-small;
 	}
 
@@ -951,13 +951,13 @@ a {
 		width: 98%;
 		font-size: smaller;
 	}
-	.quantityBtn {
-		font-size: small;
-	}
 	.cardCoffeeDesc {
 		width: 100%;
 	}
 	.quantityBtn {
+		font-size: x-small;
+	}
+	.additiveBtn {
 		font-size: x-small;
 	}
 }
