@@ -670,9 +670,10 @@ body {
 .burger-icon-wrap {
 	font-size: 30px;
 	padding: 4px 14px 7px;
-	border: 1px solid;
+	border: 1px solid rgba(64, 63, 61, 1);
 	border-radius: 50px;
 	cursor: pointer;
+	color: rgba(64, 63, 61, 1);
 }
 
 .getBlock {
