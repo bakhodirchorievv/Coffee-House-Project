@@ -52,6 +52,7 @@ body {
 
 .imgWrapper {
 	position: relative;
+	margin-bottom: 60px;
 }
 .img-hero {
 	display: block;
@@ -121,6 +122,7 @@ body {
 .father-choose-wrap {
 	position: relative;
 	user-select: none;
+	margin: 50px auto;
 }
 .choose-wrapper {
 	display: flex;
@@ -160,7 +162,7 @@ body {
 .arrow-left {
 	position: absolute;
 	left: 30px;
-	top: 50%;
+	top: 48%;
 	transform: translateY(-50%);
 	border-radius: 50%;
 	transition: 0.8s;
@@ -669,7 +671,7 @@ body {
 
 .burger-icon-wrap {
 	font-size: 30px;
-	padding: 4px 14px 7px;
+	padding: 3.4px 14px 7px;
 	border: 1px solid rgba(64, 63, 61, 1);
 	border-radius: 50px;
 	cursor: pointer;
@@ -701,11 +703,14 @@ a {
 	.choose-title,
 	.title-def,
 	.menu-main-title {
-		font-size: 45px;
+		font-size: 43px;
 		line-height: 55px;
 	}
 	.title {
 		font-size: 47px;
+	}
+	.title-def {
+		text-align: justify;
 	}
 	.desc {
 		margin: 40px 0;
@@ -736,17 +741,17 @@ a {
 	.choose-title,
 	.title-def,
 	.menu-main-title {
-		font-size: 40px;
-		line-height: 50px;
+		font-size: 48px;
+		line-height: 60px;
 	}
 	.title {
-		font-size: 50px;
+		font-size: 55px;
 	}
 	.desc {
 		margin: 50px 0;
 	}
 	.in-img-wrapper {
-		top: 40px;
+		top: 80px;
 		left: 40px;
 		right: 10px;
 	}
@@ -771,7 +776,7 @@ a {
 		margin-top: 30px;
 	}
 	.img-hero {
-		height: 500px;
+		height: 600px;
 		object-fit: cover;
 	}
 	.arrow-left {
@@ -779,8 +784,12 @@ a {
 	}
 	.choice {
 		display: block;
-		width: 80%;
+		width: 70%;
 		margin: 0 auto;
+	}
+	.phone-image {
+		width: 80%;
+		margin: 40px auto;
 	}
 
 	/* menu start */
@@ -790,11 +799,9 @@ a {
 	.coffee-item {
 		width: 48%;
 	}
+}
 
-	.toggleBurger:last-child {
-		top: 4.7%;
-	}
-
+@media only screen and (max-width: 768px) {
 	.menu-cup {
 		transform: scale(1);
 		margin-left: 8px;
@@ -817,9 +824,12 @@ a {
 	}
 
 	.in-img-wrapper {
-		top: 30px;
+		top: 40px;
 		left: 30px;
 		right: 10px;
+	}
+	.img-hero {
+		height: 510px;
 	}
 
 	.btn-wrapper {
@@ -866,10 +876,6 @@ a {
 		margin-left: 1%;
 	}
 
-	.toggleBurger:last-child {
-		top: 3.3%;
-	}
-
 	.fst {
 		transition: 0.6s;
 	}
@@ -886,7 +892,7 @@ a {
 
 @media only screen and (max-width: 373px) {
 	.img-hero {
-		height: 620px;
+		height: 590px;
 		object-fit: cover;
 	}
 	.desc {
@@ -901,13 +907,13 @@ a {
 	.type-icon {
 		padding: 5px 10px 5px 5px;
 	}
-	.choice {
-		width: 90%;
-	}
 }
 @media only screen and (max-width: 400px) {
 	.arrow-none {
 		display: none;
+	}
+	.choice {
+		width: 90%;
 	}
 }
 

@@ -1,7 +1,6 @@
 const nextBtn = document.querySelector(".arrow-right");
 const backBtn = document.querySelector(".arrow-left");
 const fsts = document.querySelectorAll(".fst");
-const wrapper = document.querySelector(".choose-wrapper");
 const borders = document.querySelectorAll(".borderr");
 const mainBorders = document.querySelectorAll(".main-border");
 
@@ -165,7 +164,6 @@ const closeBtns = document.querySelectorAll(".closeBtn");
 const overlay = document.querySelector(".overlay");
 const coffeeItems = document.querySelectorAll(".coffee-item");
 const updateDiv = document.querySelector(".updateDiv");
-const toggleBurgers = document.querySelectorAll(".toggleBurger");
 const burgerWrapper = document.querySelector(".burgerWrapper");
 const mainToggle = document.querySelector(".burger-icon-wrap");
 
