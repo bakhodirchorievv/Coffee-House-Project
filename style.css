@@ -802,6 +802,9 @@ a {
 }
 
 @media only screen and (max-width: 768px) {
+	.menu-main-title {
+		width: 90%;
+	}
 	.menu-cup {
 		transform: scale(1);
 		margin-left: 8px;
