@@ -188,14 +188,14 @@ logo.addEventListener("click", () => {
 coffeeWraps[0].style.display = "flex";
 
 btn.addEventListener("mouseover", () => {
-	if (window.innerWidth > 850) {
+	if (window.innerWidth > 768) {
 		menuCup.style.transform = "scale(1)";
 		menuT.style.marginLeft = "-7px";
 		menuCup.classList.add("add-cup");
 	}
 });
 btn.addEventListener("mouseleave", () => {
-	if (window.innerWidth > 850) {
+	if (window.innerWidth > 768) {
 		menuCup.style.transform = "scale(0)";
 		menuT.style.marginLeft = "7px";
 		menuCup.classList.remove("add-cup");
@@ -249,7 +249,7 @@ typeIcons.forEach((icon, index) => {
 		typeIcons[index].style.color = "rgba(225, 212, 201, 1)";
 		coffeeWraps[index].style.display = "flex";
 
-		if (window.innerWidth > 850) {
+		if (window.innerWidth > 768) {
 			updateDiv.style.display = "none";
 		} else {
 			Array.from(coffeeWraps[index].children).forEach((child) => {
@@ -275,7 +275,7 @@ menuBtns.forEach((menuBtn) => {
 			menuBtns.forEach((menu) => (menu.children[0].textContent = "Menu"));
 		}
 
-		if (window.innerWidth < 850) {
+		if (window.innerWidth < 768) {
 			burgerWrapper.style.right = "-100%";
 			mainToggle.textContent = "=";
 			document.body.style.overflowY = "visible";

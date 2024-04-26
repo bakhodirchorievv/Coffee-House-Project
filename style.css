@@ -275,6 +275,7 @@ body {
 	font-size: 60px;
 	color: rgba(64, 63, 61, 1);
 	line-height: 75px;
+	margin-top: 40px;
 }
 .down-desc {
 	color: rgba(64, 63, 61, 1);
@@ -443,7 +444,7 @@ body {
 }
 .coffee-item {
 	width: 23%;
-	margin-top: 25px;
+	margin-top: 30px;
 	border: 1px solid rgba(193, 182, 173, 1);
 	border-radius: 40px;
 	position: relative;
@@ -681,6 +682,9 @@ body {
 .getBlock {
 	display: none;
 }
+.getBlockEarly {
+	display: none;
+}
 
 .updateDiv {
 	text-align: center;
@@ -741,28 +745,28 @@ a {
 	.choose-title,
 	.title-def,
 	.menu-main-title {
-		font-size: 48px;
+		font-size: 52px;
 		line-height: 60px;
 	}
 	.title {
-		font-size: 55px;
+		font-size: 59px;
+	}
+	.menu-main-title {
+		width: 80%;
+	}
+	.title-def {
+		text-align: left;
 	}
 	.desc {
 		margin: 50px 0;
+	}
+	.nav-wrapper {
+		font-size: 15px;
 	}
 	.in-img-wrapper {
 		top: 80px;
 		left: 40px;
 		right: 10px;
-	}
-	.nav-wrapper {
-		display: none;
-	}
-	.getNone {
-		display: none;
-	}
-	.getBlock {
-		display: block;
 	}
 	.footer {
 		flex-direction: column;
@@ -792,12 +796,36 @@ a {
 		margin: 40px auto;
 	}
 
+	.getNoneEarly {
+		display: none;
+	}
+	.getBlockEarly {
+		display: block;
+		margin: 100px auto;
+	}
+
 	/* menu start */
 	.cardCoffeeWrap {
 		width: 570px;
+		font-size: 15px;
 	}
 	.coffee-item {
 		width: 48%;
+	}
+}
+
+@media only screen and (max-width: 850px) and (min-width: 760px) {
+	.cardCoffeeWrap {
+		width: 100%;
+	}
+	.forAbsolute {
+		width: 78%;
+	}
+	.cardImgWrap {
+		width: 50%;
+	}
+	.cardCoffeeDesc {
+		width: 50%;
 	}
 }
 
@@ -808,6 +836,19 @@ a {
 	.menu-cup {
 		transform: scale(1);
 		margin-left: 8px;
+	}
+	.nav-wrapper {
+		display: none;
+	}
+	.getNone {
+		display: none;
+	}
+	.getBlock {
+		display: block;
+	}
+
+	.logos-wrapper {
+		margin: 50px 0 70px;
 	}
 }
 
@@ -840,13 +881,13 @@ a {
 
 	.btn-wrapper {
 		flex-direction: column;
-		width: 100%;
+		width: 200px;
 	}
 	.btn-icon {
-		padding: 7px 16px;
+		padding: 8px 16px;
 	}
 	.footer {
-		padding: 25px;
+		padding: 50px 25px;
 	}
 	.arrow-left {
 		top: 45%;
@@ -854,6 +895,10 @@ a {
 	}
 	.arrow-right {
 		right: 10px;
+	}
+
+	.apps {
+		padding: 0;
 	}
 
 	/* menu start */
@@ -893,9 +938,10 @@ a {
 		gap: 5px;
 	}
 	.type-icon {
-		font-size: x-small;
+		font-size: small;
 		letter-spacing: 0.2px;
-		gap: 2px;
+		gap: 4px;
+		padding: 5px 10px 5px 5px;
 	}
 }
 
@@ -911,10 +957,6 @@ a {
 		top: 40px;
 		left: 20px;
 		right: 10px;
-	}
-
-	.type-icon {
-		padding: 5px 10px 5px 5px;
 	}
 }
 @media only screen and (max-width: 400px) {
@@ -940,13 +982,22 @@ a {
 	.menu-main-title {
 		font-size: 30px;
 	}
+	.about {
+		height: 580px;
+	}
+	.logos-wrapper {
+		margin: 35px 0 18px;
+	}
+	.phone-image {
+		width: 100%;
+	}
 
 	/* menu start*/
 	.cardImgWrap {
 		display: none;
 	}
 	.forAbsolute {
-		width: 98%;
+		width: 96%;
 		font-size: smaller;
 	}
 	.cardCoffeeDesc {
@@ -954,7 +1005,7 @@ a {
 	}
 }
 
-@media only screen and (max-width: 480px) and (min-width: 420px) {
+@media only screen and (max-width: 480px) and (min-width: 400px) {
 	.quantityBtn {
 		font-size: x-small;
 	}
@@ -963,8 +1014,14 @@ a {
 	}
 }
 
-@media only screen and (min-width: 850px) {
+@media only screen and (min-width: 768px) {
 	.updateDiv {
 		display: none;
+	}
+}
+
+@media only screen and (max-width: 345px) {
+	.type-icon {
+		font-size: x-small;
 	}
 }
