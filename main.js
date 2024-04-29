@@ -1,5 +1,6 @@
 const nextBtn = document.querySelector(".arrow-right");
 const backBtn = document.querySelector(".arrow-left");
+const fatherChooseWrap = document.querySelector(".father-choose-wrap");
 const fsts = document.querySelectorAll(".fst");
 const borders = document.querySelectorAll(".borderr");
 const mainBorders = document.querySelectorAll(".main-border");
@@ -8,12 +9,32 @@ let thePxOfLeft = 0;
 let number = 0;
 let index = 0;
 
-let touchFind = false;
-document.addEventListener("touchstart", () => {
-	touchFind = true;
+let remainingTime = 7000;
+let startTime;
+let timeLeft;
+
+function getCurrentScale() {
+	const computedStyle = window.getComputedStyle(mainBorders[index]);
+	const transformMatrix = computedStyle.getPropertyValue("transform");
+	const matrixValues = transformMatrix.match(/matrix\((.+)\)/)[1].split(", ");
+	return Number(matrixValues[0]);
+}
+
+fatherChooseWrap.addEventListener("touchstart", () => {
+	clearInterval(callTheFunctions);
+	mainBorders[index].style.transform = `scaleX(${getCurrentScale()})`;
+	// const elapsedTime = new Date().getTime() - startTime;
+	// timeLeft = remainingTime - elapsedTime;
+	// console.log(timeLeft);
 });
-document.addEventListener("touchend", () => {
-	touchFind = false;
+
+fatherChooseWrap.addEventListener("touchend", () => {
+	// if (timeLeft) {
+	// 	remainingTime = timeLeft;
+	// }
+	setTheInterval();
+	mainBorders[index].style.transition = `${remainingTime}ms` || "8s";
+	mainBorders[index].style.transform = `scaleX(1)`;
 });
 
 function contBorder() {
@@ -32,10 +53,11 @@ setTimeout(() => {
 
 let callTheFunctions;
 function setTheInterval() {
+	// startTime = new Date().getTime();
 	callTheFunctions = setInterval(() => {
 		nextFunction();
 		contBorder();
-	}, 7000);
+	}, remainingTime);
 }
 setTheInterval();
 
